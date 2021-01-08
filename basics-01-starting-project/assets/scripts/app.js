@@ -31,15 +31,17 @@ function writeToLog(
 
 function calculateResult(calculationType){
 
+	const enteredNumber = getUserNumberInput();
+
 	if (
 		calculationType !== 'ADD' && 
 		calculationType !== 'SUBSTRACT' &&
 		calculationType !== 'MULTIPLY' && 
-		calculationType !== 'DIVIDE'
+		calculationType !== 'DIVIDE' ||
+		!enteredNumber === 0
 	)	{ 
 		return;
 	}
-    const enteredNumber = getUserNumberInput();
 	const initialResult = currentResult;
 	let mathOperator;
 
@@ -78,7 +80,7 @@ function multiply() {
 }
 
 function divide() {
-	calculateResult("DIVID")
+	calculateResult("DIVIDE")
 }
 
 addBtn.addEventListener("click", add);
