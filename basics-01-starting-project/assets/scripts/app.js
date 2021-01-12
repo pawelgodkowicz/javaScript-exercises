@@ -63,30 +63,33 @@ function calculateResult(calculationType){
 	}
 
 	createAndWriteOutput(mathOperator, initialResult, enteredNumber);
-	writeToLog(calculationType, initialResult, enteredNumber, currentResult);
-	
+	writeToLog(calculationType, initialResult, enteredNumber, currentResult);	
 }
 
-function add(num1, num2) {
-	calculateResult("ADD")
-}
+///////////////////////////////// This aproach down here is replaced by bind method !
 
-function substract() {
-	calculateResult("SUBSTRACT")
-}
 
-function multiply() {
-	calculateResult("MULTIPLY")
-}
+// function add(num1, num2) {
+// 	calculateResult("ADD")
+// }
 
-function divide() {
-	calculateResult("DIVIDE")
-}
+// function substract() {
+// 	calculateResult("SUBSTRACT")
+// }
 
-addBtn.addEventListener("click", add);
-subtractBtn.addEventListener("click", substract);
-multiplyBtn.addEventListener("click", multiply);
-divideBtn.addEventListener("click", divide);
+// function multiply() {
+// 	calculateResult("MULTIPLY")
+// }
+
+// function divide() {
+// 	calculateResult("DIVIDE")
+// }
+//////////////////////////////////////////////down here////////////////
+
+addBtn.addEventListener("click", calculateResult.bind(this, 'ADD'));
+subtractBtn.addEventListener("click", calculateResult.bind(this, 'SUBSTRACT'));
+multiplyBtn.addEventListener("click", calculateResult.bind(this, 'MULTIPLY'));
+divideBtn.addEventListener("click", calculateResult.bind(this, 'DIVIDE'));
 
 //currentResult.toString();                         # to string
 //currentResult.toString() + +(userInput.value);   #instead of parseFloat/Int()
